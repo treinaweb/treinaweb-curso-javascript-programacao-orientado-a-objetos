@@ -1,26 +1,24 @@
-// const ariel = {
-//     nome: "ariel",
-//     idade: 29,
-//     andar: function () { }
+// const data = {
+//     addNome(nome) {
+//         this.nome = nome
+
+//         console.log(this);
+//     }
 // }
 
-// const elton = {
-//     nome: "elton",
-//     idade: 36,
-//     endereco: '',
-//     andar: function () { }
+// data.addNome('carlos');
+
+
+// function Pessoa(nome) {
+//     this.nome = nome;
+
+//     console.log(this);
 // }
 
-function Pessoa(nome, idade, endereco) {
-    this.nome = nome;
-    this.idade = idade;
-    this.endereco = endereco;
+// new Pessoa("ariel");
 
-    this.andar = function () { }
-}
+// new Pessoa("carlos");
 
-const elton = new Pessoa("elton", 36, "ruax");
+// new Pessoa("elton");
 
-const ariel = new Pessoa("ariel", 29, "rua y");
-
-console.log(elton);
+console.log(this);
