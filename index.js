@@ -1,13 +1,19 @@
+// É um tipo de classe que somente 
+// pode ser herdada e não instanciada.
+
 class Pessoa {
     nome;
     idade;
     constructor(nome, idade) {
+        if (new.target === Pessoa) {
+            throw new Error('Está classe é abstrata e não pode ser instanciada');
+        }
         this.nome = nome;
         this.idade = idade;
     }
 
-    androu() {
-        console.log(`A pessoa ${this.nome} andou`);
+    andar() {
+        console.log(`O ${this.nome} andou`);
     }
 }
 
@@ -17,23 +23,8 @@ class Aluno extends Pessoa {
         super(nome, idade);
         this.nota = nota;
     }
-
-    androu() {
-        console.log(`O aluno ${this.ariel} andou`)
-    }
 }
 
-class Paulo extends Aluno {
+const ariel = new Aluno('Ariel', 29, 10);
 
-    constructor(nome, idade, nota) {
-        super(nome, idade, nota);
-    }
-
-    androu() {
-        console.log(`O  ${this.nome} andou`)
-    }
-}
-
-const ariel = new Paulo('Ariel', 29, 10);
 console.log(ariel);
-console.log(ariel.androu());
