@@ -1,13 +1,19 @@
-// ECMAScript 2022
-
 class Pessoa {
-    #nome = '';
+    #nome;
+    static pessoas = 0;
     constructor(nome) {
         this.#nome = nome;
+        Pessoa.pessoas++;
     }
 
-    andar() {
-        console.log(`A pessoa ${this.#nome} andou`);
+    static pessoaModeu(valor) {
+        if (valor) {
+            Pessoa.pessoas -= valor;
+        }
+    }
+
+    androu() {
+        console.log(`O ${this.#nome} andou`);
     }
 
     get nome() {
@@ -18,7 +24,22 @@ class Pessoa {
         this.#nome = value;
     }
 }
-
 const ariel = new Pessoa('Ariel');
-ariel.nome = 'Pedro';
-console.log(ariel.nome);
+const pedro = new Pessoa('Pedro');
+console.log(ariel);
+new Pessoa('Pedro');
+new Pessoa('Pedro');
+new Pessoa('Pedro');
+new Pessoa('Pedro');
+new Pessoa('Pedro');
+
+Pessoa.pessoaModeu(3);
+
+new Pessoa('Pedro');
+new Pessoa('Pedro');
+new Pessoa('Pedro');
+new Pessoa('Pedro');
+
+Pessoa.pessoaModeu(1);
+console.log(Pessoa.pessoas);
+
