@@ -1,30 +1,15 @@
-// É um tipo de classe que somente 
-// pode ser herdada e não instanciada.
+// ECMAScript 2022
 
 class Pessoa {
-    nome;
-    idade;
-    constructor(nome, idade) {
-        if (new.target === Pessoa) {
-            throw new Error('Está classe é abstrata e não pode ser instanciada');
-        }
-        this.nome = nome;
-        this.idade = idade;
+    #nome = '';
+    constructor(nome) {
+        this.#nome = nome;
     }
 
     andar() {
-        console.log(`O ${this.nome} andou`);
+        console.log(`A pessoa ${this.#nome} andou`);
     }
 }
 
-class Aluno extends Pessoa {
-    nota;
-    constructor(nome, idade, nota) {
-        super(nome, idade);
-        this.nota = nota;
-    }
-}
-
-const ariel = new Aluno('Ariel', 29, 10);
-
-console.log(ariel);
+const ariel = new Pessoa('Ariel');
+console.log(ariel.nome);
