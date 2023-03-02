@@ -1,14 +1,15 @@
-function Pessoa(nome, idade) {
+function Pessoa(nome) {
     this.nome = nome;
-    this.idade = idade;
+
+    Pessoa.prototype.valor = this;
 }
 
-const p1 = new Pessoa("ariel", 29);
+Pessoa.prototype.falar = function () {
+    console.log(this);
+}
 
+const pessoa = new Pessoa("ariel");
 
-const p2 = Object.create(p1);
+console.log(pessoa.valor);
 
-const p3 = new p1.constructor('elton', 49);
-
-
-console.log(p2);
+// pessoa.falar();
