@@ -1,12 +1,13 @@
-"use strict"
-
-var idade = 25
-
 function Pessoa(nome) {
 
+    if (!new.target) {
+        throw "o objeto Pessoa deve ser instânciado"
+    }
 
     this.nome = nome;
-    console.log(this instanceof Pessoa);
+    console.log(this);
+    console.log(new.target);
 }
 
 new Pessoa();
+
