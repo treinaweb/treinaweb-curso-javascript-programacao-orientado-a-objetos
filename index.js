@@ -1,30 +1,34 @@
-// É um tipo de classe que somente 
-// pode ser herdada e não instanciada.
+// Define as operações que um objeto 
+// será obrigado a implementar.
 
 class Pessoa {
-    nome;
-    idade;
-    constructor(nome, idade) {
+    constructor() {
         if (new.target === Pessoa) {
-            throw new Error('Está classe é abstrata e não pode ser instanciada');
+            throw new Error('Está classe é interface e não pode ser instanciada');
         }
-        this.nome = nome;
-        this.idade = idade;
     }
 
     andar() {
-        console.log(`O ${this.nome} andou`);
+        throw new Error('o método andar precisa ser implementado')
     }
 }
 
 class Aluno extends Pessoa {
     nota;
+    nome;
+    idade;
     constructor(nome, idade, nota) {
-        super(nome, idade);
+        super();
         this.nota = nota;
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    andar() {
+        console.log(`O ${this.nome} andou`)
     }
 }
 
 const ariel = new Aluno('Ariel', 29, 10);
-
+ariel.andar();
 console.log(ariel);
