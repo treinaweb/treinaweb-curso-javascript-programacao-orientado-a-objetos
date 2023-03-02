@@ -1,13 +1,23 @@
-function Pessoa(nome) {
+function Counter() {
+    let _count = 0;
 
-    if (!new.target) {
-        throw "o objeto Pessoa deve ser instânciado"
+    function _increment() {
+        _count++;
     }
 
-    this.nome = nome;
-    console.log(this);
-    console.log(new.target);
+    this.getCount = () => _count;
+
+    this.increment = function () {
+        _increment();
+    }
 }
 
-new Pessoa();
 
+const counter = new Counter();
+
+counter.increment();
+counter.increment();
+counter.increment();
+counter.increment();
+
+console.log(counter.getCount());
