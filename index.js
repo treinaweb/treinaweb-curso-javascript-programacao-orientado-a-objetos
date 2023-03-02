@@ -1,16 +1,24 @@
-// ECMAScript 2015
+// ECMAScript 2022
 
 class Pessoa {
-    nome = '';
+    #nome = '';
     constructor(nome) {
-        this.nome = nome;
+        this.#nome = nome;
     }
 
-
     andar() {
-        console.log(`A pessoa ${this.nome} andou`);
+        console.log(`A pessoa ${this.#nome} andou`);
+    }
+
+    get nome() {
+        return this.#nome;
+    }
+
+    set nome(value) {
+        this.#nome = value;
     }
 }
 
 const ariel = new Pessoa('Ariel');
-console.log(ariel);
+ariel.nome = 'Pedro';
+console.log(ariel.nome);
